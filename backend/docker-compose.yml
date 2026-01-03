@@ -2,9 +2,9 @@ version: "3.8"
 
 services:
   postgres:
-    image: postgres:16-alpine
+    image: postgres:16-alpine #postgres 16 with alpine linux  -> because alpine is lightweight and more secure
     container_name: logistics_db
-    restart: unless-stopped
+    restart: unless-stopped #Auto restart if crashes
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres

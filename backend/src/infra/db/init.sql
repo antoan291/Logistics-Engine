@@ -9,7 +9,7 @@ CREATE TABLE users(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_by UUID REFERENCES users(id) -- who created this account(owners's id)
-)
+);
 
 -- Refresh token table(from jwt refresh flow)
 CREATE TABLE refresh_tokens(
