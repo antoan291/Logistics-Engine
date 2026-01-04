@@ -25,4 +25,7 @@ export class JwtUtil {
   static verifyAccessToken(token: string): JwtPayload {
     return jwt.verify(token, config.JWT_ACCESS_SECRET) as JwtPayload;
   }
+  static verifyRefreshToken(token: string): JwtPayload {
+    return jwt.verify(token, config.JWT_REFRESH_SECRET) as JwtPayload;
+  }
 }

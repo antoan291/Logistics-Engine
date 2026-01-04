@@ -3,7 +3,7 @@ import cors from "cors";
 import { config } from "./config/config";
 import db from "./infra/db/client";
 import { userRepository } from "./infra/repositories/user.repository";
-import { success } from "zod";
+import authRoutes from "./api/routes/auth.routes";
 
 const app = express();
 
@@ -39,14 +39,15 @@ app.post("/test-create-user", async (req, res) => {
     });
     res.json({ success: true, user });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        error: error instanceof Error ? error.message : "Unknown error",
-      });
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : "Unknown error",
+    });
   }
 });
+
+//Auth routes
+app.use("/api/auth", authRoutes);
 
 app.listen(config.PORT, () => {
   console.log(`API running on http://localhost:${config.PORT}`);

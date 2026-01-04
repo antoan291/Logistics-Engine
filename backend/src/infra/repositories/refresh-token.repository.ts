@@ -40,3 +40,5 @@ export class RefreshTokenRepository {
     await db.query(query);
   }
 }
+
+export const refreshTokenRepository = new RefreshTokenRepository();
