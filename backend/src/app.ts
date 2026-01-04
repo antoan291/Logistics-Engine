@@ -4,6 +4,7 @@ import { config } from "./config/config";
 import db from "./infra/db/client";
 import { userRepository } from "./infra/repositories/user.repository";
 import authRoutes from "./api/routes/auth.routes";
+import { PasswordUtil } from "./core/auth/password.util";
 
 const app = express();
 
