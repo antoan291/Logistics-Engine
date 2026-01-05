@@ -4,7 +4,7 @@ import { config } from "./config/config";
 import db from "./infra/db/client";
 import { userRepository } from "./infra/repositories/user.repository";
 import authRoutes from "./api/routes/auth.routes";
-import { PasswordUtil } from "./core/auth/password.util";
+import trailerRoutes from "./api/routes/trailer.routes";
 
 const app = express();
 
@@ -49,6 +49,7 @@ app.post("/test-create-user", async (req, res) => {
 
 //Auth routes
 app.use("/api/auth", authRoutes);
+app.use("/api/trailers", trailerRoutes);
 
 app.listen(config.PORT, () => {
   console.log(`API running on http://localhost:${config.PORT}`);
